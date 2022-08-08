@@ -17,5 +17,5 @@ Open `http://127.0.0.1:5000`
 
 Open `http://localhost:3000`
 
-### Build React JS to Production
+### Build React JS App for Production
 `npm run build`
