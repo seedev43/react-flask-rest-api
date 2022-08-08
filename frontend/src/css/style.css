@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+body {
+    background-color: #000;
+}
+
+.body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #000;
+    color: #FFF;
+    border: 2px solid cyan;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.title {
+    font-family: 'Open Sans', sans-serif;
+    color: #FFF;
+    text-align: center;
+}
+
+.btn {
+    display: flex;
+    background-color: transparent;
+    color: #FFF;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.btn-custom {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    outline: none;
+    border: 1.5px solid cyan;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: cyan;
+    transition: ease 1s;
+}
+
+.btn:disabled {
+    border: 1.5px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+
+.form-input {
+    font-family: 'Open Sans', sans-serif;
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1.5px solid cyan;
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 600;    
+}
+
+::placeholder {
+    color: #FFF;
+    opacity: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    width: 50%;
+    align-items: center;
+    border: 1px solid cyan;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-upload {
+    background-color: indigo;
+    color: white;
+    padding: 0.5rem;
+    font-family: sans-serif;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    margin-bottom: 1%;
+}
+  
+.btn-upload {
+    display: column;
+    border: 1.5px solid cyan;
+    color: #FFF;
+    background-color: transparent;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.upload-btn-wrapper input[type=file] {
+    cursor: pointer;
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.upload-btn-wrapper label {
+    position: relative;
+    margin-left: 0.6rem;
+}
