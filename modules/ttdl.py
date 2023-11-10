@@ -6,9 +6,13 @@ def TikTokDownloader(url):
     try:
 
         headers = {
-
+            'Sec-Fetch-Dest':'document',
+            'Sec-Fetch-Mode':'navigate',
+            'Sec-Fetch-Site':'same-origin',
+            'Sec-Fetch-User':'?1',
+            'Sec-Gpc': '1',
             'Host': 'musicaldown.com',
-            'User-Agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.88 Mobile Safari/537.36',
+            'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
         }
 
         reqWeb = req.get("https://musicaldown.com/id", headers=headers)
@@ -23,11 +27,12 @@ def TikTokDownloader(url):
                            data=postBody, headers=headers, cookies=reqWeb.cookies)
 
         initScrapeLink = bs(reqPost.text, 'html.parser')
+        print(initScrapeLink)
 
         getLinks = []
-        if 'Check out' in initScrapeLink.find('title').string:
+        if 'Unduh Sekarang!' in initScrapeLink.find('title').string:
             extractLinks = initScrapeLink.find_all(
-                'a', {'target': '_blank'})
+                'a', {'style': 'margin-top:10px;'})
             for extractLink in extractLinks:
                 getLinks.append(extractLink['href'])
 
