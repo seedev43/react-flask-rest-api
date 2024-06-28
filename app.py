@@ -1,4 +1,4 @@
-from crypt import methods
+# from crypt import methods
 from flask import Flask, request
 from flask.helpers import send_from_directory
 from flask_cors import CORS, cross_origin

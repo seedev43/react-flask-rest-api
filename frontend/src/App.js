@@ -13,7 +13,8 @@ const App = () => {
     <BrowserRouter>
       <div className='container'>
         <div className='body'>
-          <h1 className='title'>SeeDev API</h1>
+          <h1 className='title'>TKTDW API</h1>
+          <h2 className='title'>Social Media Content Scraper</h2>
           <Routes>
             <Route index element={<Home/>} />
             <Route path="/tiktokdl" element={<TikTokdl/>} />
