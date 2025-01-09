@@ -93,6 +93,6 @@ class WordToPDF:
         process_result['download_url'] = "https://" + upload_result['server'] + ".ilovepdf.com/v1/download/" + upload_result['taskId']
 
         process_result['success'] = True
-        process_result['msg'] = "Success convert file"
+        process_result['message'] = "Success convert file"
         
         return process_result

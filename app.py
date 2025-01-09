@@ -40,15 +40,14 @@ def TikTokDL():
 def word2pdf():
     try:
         file = request.files.get('file')
-        filename = request.form.get('filename')
         
-        if not file or not filename:
+        if not file:
             return {
                 "success": False, 
-                "message": "File and filename are required"
+                "message": "file are required"
             }, 400
         
-        convertFile = WordToPDF(file, filename)
+        convertFile = WordToPDF(file, file.filename)
         return convertFile.processConvertFile()
     except Exception as e:
         return {
@@ -61,15 +60,14 @@ def word2pdf():
 def pdf2word():
     try:
         file = request.files.get('file')
-        filename = request.form.get('filename')
         
-        if not file or not filename:
+        if not file:
             return {
                 "success": False, 
-                "message": "File and filename are required"
+                "message": "file are required"
             }, 400
         
-        convertFile = PDFToWord(file, filename)
+        convertFile = PDFToWord(file, file.filename)
         return convertFile.processConvertFile()
     except Exception as e:
         return {
