@@ -3,7 +3,8 @@ from flask import Flask, request
 from flask.helpers import send_from_directory
 from flask_cors import CORS, cross_origin
 from modules.ttdl import TikTokDownloader
-from modules.cvw2pdf import CVW2PDF
+from modules.word2pdf import WordToPDF
+from modules.pdf2word import PDFToWord
 
 app = Flask(__name__, static_folder='frontend/build', static_url_path='')
 CORS(app)
@@ -36,13 +37,46 @@ def TikTokDL():
 
 @app.route("/api/convert-word-to-pdf", methods=['POST'])
 @cross_origin()
-def cvpage():
-    if request.files['file'] and request.form['filename']:
-        url = request.files['file']
-        fileName = request.form['filename']
-        convertFile = CVW2PDF(url, fileName)
-        return convertFile.executeProcess()
+def word2pdf():
+    try:
+        file = request.files.get('file')
+        filename = request.form.get('filename')
+        
+        if not file or not filename:
+            return {
+                "success": False, 
+                "message": "File and filename are required"
+            }, 400
+        
+        convertFile = WordToPDF(file, filename)
+        return convertFile.processConvertFile()
+    except Exception as e:
+        return {
+            "success": False,
+                "message": str(e)
+        }, 500
+
+@app.route("/api/convert-pdf-to-word", methods=['POST'])
+@cross_origin()
+def pdf2word():
+    try:
+        file = request.files.get('file')
+        filename = request.form.get('filename')
+        
+        if not file or not filename:
+            return {
+                "success": False, 
+                "message": "File and filename are required"
+            }, 400
+        
+        convertFile = PDFToWord(file, filename)
+        return convertFile.processConvertFile()
+    except Exception as e:
+        return {
+            "success": False,
+                "message": str(e)
+        }, 500
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

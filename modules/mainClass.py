@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup as bs4
 
 
 
-class CVW2PDF:
+class WordToPDF:
     def __init__(self, url, nameDocs):
         self.url = url
         self.nameDocs = nameDocs
@@ -102,5 +102,5 @@ class CVW2PDF:
         
 
 
-callClass = CVW2PDF("http://localhost:8080/TesUy.docx", "Oghey.docx")
+callClass = WordToPDF("http://localhost:8080/TesUy.docx", "Oghey.docx")
 print(callClass.processConvertFile())
